@@ -1,8 +1,10 @@
-name: PR Workflow by ${{ github.actor }}
+name: PR
+run-name: PR Workflow by ${{ github.actor }}
 
 on:
   pull_request:
     types: [opened, synchronize, reopened]
+    branches: ["main"]
 
 env:
   GITHUB_ACTIONS: true
@@ -15,10 +17,12 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Show GITHUB_ACTIONS variable
-        run: echo "GITHUB_ACTIONS=$GITHUB_ACTIONS"
+        run: echo "GITHUB_ACTIONS=${{ env.GITHUB_ACTIONS }}"
 
       - name: Show branch and repository name
-        run: echo "Branch: ${{ github.ref }} | Repository: ${{ github.repository }}"
+        run: |
+          echo "Name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}"
 
       - name: Show event name
-        run: echo "Event: ${{ github.event_name }}"
+        run: |
+          echo "Event: ${{ github.event_name }}"
