@@ -18,7 +18,7 @@ jobs:
         run: echo "GITHUB_ACTIONS=${{ env.GITHUB_ACTIONS }}"
 
       - name: Show branch and repository name
-        run: echo "Branch: ${{ github.ref }} | Repository: ${{ github.repository }}"
+        run: echo "Name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}"
 
       - name: Show event name
         run: echo "Event: ${{ github.event_name }}"
